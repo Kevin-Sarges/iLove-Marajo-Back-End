@@ -5,7 +5,13 @@ module.exports = {
   development: {
     client: 'pg',
     version: '13.2',
-    connection: process.env.DATABASE_URL,
+    connection: {
+      host: process.env.HOST_DATABASE,
+      database: process.env.NAME_DATABASE,
+      port: process.env.PORT_DATABASE,
+      user: process.env.USER_DATABASE,
+      password: process.env.PASSWORD_DATABASE
+    },
     
     migrations: {
       directory: `${__dirname}/src/database/migrations`
@@ -16,11 +22,3 @@ module.exports = {
     }
   }
 };
-
-/* 
-  host: process.env.HOST_DATABASE,
-  database: process.env.NAME_DATABASE,
-  port: process.env.PORT_DATABASE,
-  user: process.env.USER_DATABASE,
-  password: process.env.PASSWORD_DATABASE
-*/
