@@ -6,11 +6,11 @@ module.exports = {
     client: 'pg',
     version: '13.2',
     connection: {
-      host: 'localhost',
-      database: 'ilove_marajo',
-      port: '5001',
-      user: 'postgres',
-      password: '081317ks'
+      host: process.env.HOST_DATABASE,
+      database: process.env.NAME_DATABASE,
+      port: process.env.PORT_DATABASE,
+      user: process.env.USER_DATABASE,
+      password: process.env.PASSWORD_DATABASE
     },
     
     migrations: {
