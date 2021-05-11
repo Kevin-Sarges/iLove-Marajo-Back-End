@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+require('dotenv');
+
 const routesMunicipios = require('./routes/routesMunicipios');
 const routesPraias = require('./routes/routesPraias')
 const port = process.env.PORT || 3000;
