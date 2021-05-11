@@ -105,17 +105,5 @@ module.exports = {
     } catch (error) {
       next(error);
     }
-  },
-
-  async delete(req, res, next) {
-    try {
-      const { id } = req.params;
-
-      await knex('praia').where({ id_praia: id }).del()
-    
-      return res.json({ 'dados': 'deletado' });
-    } catch (error) {
-      next(error)
-    }
   }
 }

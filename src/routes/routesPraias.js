@@ -7,6 +7,4 @@ routes.get('/prais-municipio', praias.listaPraiasUnicoMunicipio);
 
 routes.post('/postPraias', praias.cadastraPraias);
 
-routes.delete('/deltePraias/:id', praias.delete);
-
 module.exports = routes;
