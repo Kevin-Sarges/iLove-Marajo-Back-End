@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const app = express();
 
-require('dotenv');
+require('dotenv').config();
 
 const routesMunicipios = require('./routes/routesMunicipios');
 const routesPraias = require('./routes/routesPraias')
 const port = process.env.PORT || 3000;
+const app = express();
 
 app.use(cors());
 app.use(express.json());
