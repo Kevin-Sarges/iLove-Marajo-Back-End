@@ -16,11 +16,3 @@ module.exports = {
     }
   }
 };
-
-/*
-HOST_DATABASE=localhost
-NAME_DATABASE=ilove_marajo
-PORT_DATABASE=5001
-USER_DATABASE=postgres
-PASSWORD_DATABASE=081317ks
-*/
