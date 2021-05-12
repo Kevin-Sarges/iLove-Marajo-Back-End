@@ -8,11 +8,11 @@ module.exports = {
     connection: process.env.DATABASE_URL,
     
     migrations: {
-      directory: `${__dirname}/src/database/migrations`
+      directory: `./dist/database/migrations`
     },
 
     seeds: {
-      directory: `${__dirname}/src/database/seeds`
+      directory: `./dist/database/seeds`
     }
   },
 
