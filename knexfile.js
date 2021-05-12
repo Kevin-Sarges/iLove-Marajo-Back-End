@@ -29,6 +29,10 @@ module.exports = {
 
     migrations: {
       tableName: './dist/database/migrations'
+    },
+
+    seeds: {
+      directory: `./dist/database/seeds`
     }
   }
 };
