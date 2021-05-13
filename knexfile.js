@@ -8,15 +8,15 @@ module.exports = {
     connection: process.env.DATABASE_URL,
     
     migrations: {
-      directory: `./dist/database/migrations`
+      directory: `${__dirname}/src/database/migrations`
     },
 
     seeds: {
-      directory: `./dist/database/seeds`
+      directory: `${__dirname}/src/database/seeds`
     }
   },
 
-  /*production: {
+  production: {
     client: 'pg',
     version: '13.2',
     connection: process.env.DATABASE_URL,
@@ -28,5 +28,5 @@ module.exports = {
     seeds: {
       directory: `./dist/database/seeds`
     }
-  }*/
+  }
 };
