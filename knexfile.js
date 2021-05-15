@@ -22,7 +22,7 @@ module.exports = {
     connection: process.env.DATABASE_URL,
 
     migrations: {
-      tableName: `${__dirname}/src/database/migrations`
+      tableName: './src/database/migrations'
     }
   }
 };
