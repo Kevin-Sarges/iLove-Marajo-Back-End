@@ -5,7 +5,9 @@ exports.seed = function(knex) {
     .then(function () {
       // Inserts seed entries
       return knex('municipios').insert([
-        { nome_municipios: "Salvaterra" },
+        { 
+          nome_municipio: "Salvaterra" 
+        },
       ]);
     });
 };

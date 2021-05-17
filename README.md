@@ -16,7 +16,7 @@
 
 - Listando todos os municipios: `http://localhost:3000/municipios`
 
-- Pesquisando por uma unico municipio:`http://localhost:3000/municipio?nome_municipios="Nome do municipio"`
+- Pesquisando por uma unico municipio:`http://localhost:3000/municipio?nome_municipio="Nome do municipio"`
 
 
 ### Rotas Praias:
@@ -25,4 +25,4 @@
 
 - Pesquisando por uma unica praia: `http://localhost:3000/praia?nome_praia=Praia Grande`
 
-- Pesquisando praias de um municipio: `http://localhost:3000/prais-municipio?municipios="Nome do municipio"`
+- Pesquisando praias de um municipio: `http://localhost:3000/prais-municipio?municipio="Nome do municipio"`

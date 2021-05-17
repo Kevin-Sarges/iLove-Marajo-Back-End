@@ -25,15 +25,15 @@ module.exports = {
       if(query) {
         query
           .where({ nome_praia })
-          .join('municipios', 'municipios.nome_municipios', '=', 'praia.municipios')
+          .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
           .select(
-            'municipios.nome_municipios', 
+            'municipios.nome_municipio', 
             'praia.nome_praia',
             'praia.descricao',
             'praia.foto', 
             'praia.avaliacao', 
             'praia.lat', 
-            'praia.long'
+            'praia.lon'
           );
       }
        
@@ -47,22 +47,22 @@ module.exports = {
 
   async listaPraiasUnicoMunicipio(req, res, next) {
     try {
-      const { municipios } = req.query;
+      const { municipio } = req.query;
 
       const query = knex.table('praia');
 
       if(query) {
         query
-          .where({ municipios })
-          .join('municipios', 'municipios.nome_municipios', '=', 'praia.municipios')
+          .where({ municipio })
+          .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
           .select(
-            'municipios.nome_municipios', 
+            'municipios.nome_municipio', 
             'praia.nome_praia',
             'praia.descricao',
             'praia.foto', 
             'praia.avaliacao', 
             'praia.lat', 
-            'praia.long'
+            'praia.lon'
           );
       }
        
@@ -83,9 +83,9 @@ module.exports = {
         descricao,
         foto,
         lat,
-        long,
+        lon,
         avaliacao,
-        municipios,
+        municipio,
       } = req.body;
 
       const praias = {
@@ -93,9 +93,9 @@ module.exports = {
         descricao,
         foto,
         lat,
-        long,
+        lon,
         avaliacao,
-        municipios,
+        municipio,
       };
 
       await knex('praia').insert(praias);
@@ -104,18 +104,6 @@ module.exports = {
 
     } catch (error) {
       next(error);
-    }
-  },
-
-  async delete(req, res, next) {
-    try {
-      const { id } = req.params;
-
-      await knex('praia').where({ id_praia: id }).del()
-    
-      return res.json({ 'dados': 'deletado' });
-    } catch (error) {
-      next(error)
     }
   }
 }

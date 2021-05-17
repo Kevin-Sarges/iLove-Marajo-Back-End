@@ -13,14 +13,14 @@ module.exports = {
 
   async ListandoUmMunicipio(req, res, next) {
     try {
-      const { nome_municipios } = req.query;
+      const { nome_municipio } = req.query;
 
       const query = knex.table('municipios')
         
       if(query) {
         query
-          .where({ nome_municipios })
-          .select('nome_municipios');
+          .where({ nome_municipio })
+          .select('nome_municipio');
       }
       
       const result = await query;
@@ -33,9 +33,9 @@ module.exports = {
 
   async CadastraMunicipios(req, res, next){
     try {
-      const { nome_municipios } = req.body;
+      const { nome_municipio } = req.body;
 
-      const municipio = { nome_municipios };
+      const municipio = { nome_municipio };
 
       await knex('municipios').insert(municipio);
 
