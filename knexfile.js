@@ -3,9 +3,12 @@
 module.exports = {
 
   development: {
-    client: 'pg',
-    version: '13.2',
-    connection: process.env.DATABASE_URL,
+    client: 'sqlite3',
+    connection: {
+      filename: `${__dirname}/src/database/database.sqlite`
+    },
+
+    useNullAsDefault: true,
     
     migrations: {
       directory: `${__dirname}/src/database/migrations`
