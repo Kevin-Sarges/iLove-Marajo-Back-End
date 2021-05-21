@@ -7,8 +7,9 @@ exports.up = function(knex) {
     table.text('foto').notNullable();
     table.text('lat').notNullable();
     table.text('lon').notNullable();
-    table.float('avaliacao').notNullable();
 
+    table.integer('id_avaliacao').notNullable();
+    table.foreign('id_avaliacao').references('avaliacao.id_avaliacao');
     table.text('municipio').notNullable();
     table.foreign('municipio').references('municipios.nome_municipio');
   });

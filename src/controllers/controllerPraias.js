@@ -4,10 +4,10 @@ module.exports = {
   async listPraiasBemAvaliadas(req, res, next) {
     try {
       const list = await knex
-        .table('praia')
+        .select('*')
         .where('avaliacao', '>=', '4.5')
         .orderBy('avaliacao', 'desc')
-        .select('*')
+        .table('praia')
         .limit(4);
 
       return res.json(list);
