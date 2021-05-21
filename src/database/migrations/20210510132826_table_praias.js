@@ -8,8 +8,8 @@ exports.up = function(knex) {
     table.text('lat').notNullable();
     table.text('lon').notNullable();
 
-    table.integer('id_avaliacao').notNullable();
-    table.foreign('id_avaliacao').references('avaliacao.id_avaliacao');
+    table.float('avaliacao').notNullable();
+    table.foreign('avaliacao').references('avaliacao.avaliacao');
     table.text('municipio').notNullable();
     table.foreign('municipio').references('municipios.nome_municipio');
   });

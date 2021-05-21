@@ -4,8 +4,8 @@ exports.up = function(knex) {
     table.increments('id_avaliacao').primary();
     table.float('avaliacao');
 
-    table.integer('id_praia');
-    table.foreign('id_praia').references('praia.id_praia');
+    table.text('nome_praia');
+    table.foreign('nome_praia').references('praia.nome_praia');
   });
 };
 

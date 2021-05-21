@@ -7,12 +7,12 @@ exports.seed = function(knex) {
       return knex('avaliacao').insert([
         {
           avaliacao: 4.5,
-          id_praia: 1
+          nome_praia: 'Praia Grande'
         },
 
         {
           avaliacao: 4.5,
-          id_praia: 2
+          nome_praia: 'Praia Portinho'
         }
       ]);
     });

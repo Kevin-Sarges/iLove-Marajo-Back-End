@@ -27,11 +27,11 @@ module.exports = {
           .where({ nome_praia })
           .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
           .select(
-            'municipios.nome_municipio', 
+            'municipios.nome_municipio',
             'praia.nome_praia',
             'praia.descricao',
             'praia.foto', 
-            'praia.avaliacao', 
+            'praia.avaliacao',
             'praia.lat', 
             'praia.lon'
           );
