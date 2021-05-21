@@ -74,8 +74,6 @@ module.exports = {
     }
   },
 
-  
-
   async cadastraPraias(req, res, next) {
     try {
       const {
@@ -98,7 +96,7 @@ module.exports = {
         municipio,
       };
 
-      await knex('praia').insert(praias);
+      await knex.table('praia').insert(praias);
 
       return res.status(201).json({ 'dados': 'salvos' });
 
