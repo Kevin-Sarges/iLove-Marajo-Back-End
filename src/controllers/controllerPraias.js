@@ -4,10 +4,10 @@ module.exports = {
   async listPraiasBemAvaliadas(req, res, next) {
     try {
       const list = await knex
-        .table('praia')
+        .select('*')
         .where('avaliacao', '>=', '4.5')
         .orderBy('avaliacao', 'desc')
-        .select('*')
+        .table('praia')
         .limit(4);
 
       return res.json(list);
@@ -27,11 +27,11 @@ module.exports = {
           .where({ nome_praia })
           .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
           .select(
-            'municipios.nome_municipio', 
+            'municipios.nome_municipio',
             'praia.nome_praia',
             'praia.descricao',
             'praia.foto', 
-            'praia.avaliacao', 
+            'praia.avaliacao',
             'praia.lat', 
             'praia.lon'
           );
@@ -74,8 +74,6 @@ module.exports = {
     }
   },
 
-  
-
   async cadastraPraias(req, res, next) {
     try {
       const {
@@ -98,7 +96,7 @@ module.exports = {
         municipio,
       };
 
-      await knex('praia').insert(praias);
+      await knex.table('praia').insert(praias);
 
       return res.status(201).json({ 'dados': 'salvos' });
 
