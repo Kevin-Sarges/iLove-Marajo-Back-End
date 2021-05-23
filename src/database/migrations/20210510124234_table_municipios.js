@@ -1,7 +1,8 @@
 
 exports.up = function(knex) {
   return knex.schema.createTable('municipios', table => {
-    table.text('nome_municipio').notNullable().primary();
+    table.increments('id_municipio').notNullable().primary();
+    table.text('nome_municipio').notNullable();
   });
 };
 
