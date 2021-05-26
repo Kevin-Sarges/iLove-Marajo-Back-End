@@ -23,6 +23,6 @@
 
 - Listando todas as praias: `http://localhost:3000/praias`
 
-- Pesquisando por uma unica praia: `http://localhost:3000/praia?nome_praia=Praia Grande`
+- Pesquisando por uma unica praia: `http://localhost:3000/praia?nome_praia="Nome da praia"`
 
-- Pesquisando praias de um municipio: `http://localhost:3000/prais-municipio?municipio="Nome do municipio"`
+- Pesquisando praias de um municipio: `http://localhost:3000/praias-municipio?municipio="Nome do municipio"`
