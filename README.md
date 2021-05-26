@@ -10,7 +10,7 @@
 
 ## Heroku URL Base
 
-`https://ilove-marajo-node.herokuapp.com/`
+`https://back-end-ilove-marajo.herokuapp.com/`
 
 ### Rotas Municipios:
 
