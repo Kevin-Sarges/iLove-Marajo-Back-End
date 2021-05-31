@@ -1,4 +1,5 @@
 const knex = require('../database');
+const Praias = require('../models/modelPraias');
 
 module.exports = {
   async listPraiasBemAvaliadas(req, res, next) {
@@ -22,7 +23,7 @@ module.exports = {
   
       const query = knex.table('praia');
   
-      if(query) {
+      if( nome_praia ) {
         query
           .where({ nome_praia })
           .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
@@ -51,7 +52,7 @@ module.exports = {
 
       const query = knex.table('praia');
 
-      if(query) {
+      if( municipio ) {
         query
           .where({ municipio })
           .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
@@ -75,26 +76,27 @@ module.exports = {
   },
 
   async cadastraPraias(req, res, next) {
-    try {
-      const {
-        nome_praia,
-        descricao,
-        foto,
-        lat,
-        lon,
-        avaliacao,
-        municipio,
-      } = req.body;
+    const {
+      nome_praia,
+      foto,
+      lat,
+      lon,
+      descricao,
+      avaliacao,
+      municipio,
+    } = req.body;
 
-      const praias = {
-        nome_praia,
+    try {
+
+      const praias = new Praias(
+        nome_praia, 
+        foto, 
+        lat, 
+        lon, 
         descricao,
-        foto,
-        lat,
-        lon,
-        avaliacao,
-        municipio,
-      };
+        avaliacao, 
+        municipio
+      );
 
       await knex.table('praia').insert(praias);
 
