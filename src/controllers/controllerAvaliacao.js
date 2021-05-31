@@ -4,11 +4,14 @@ const Avaliacoes = require('../models/modelAvaliacao');
 module.exports = {
   async listaAvaliacoes(req, res, next) {
     try {
+      const { nome_praia } = req.query;
+
       const list = await knex.table('avaliacao')
         .join('praia', 'praia.id_praia', '=', 'avaliacao.id_praia')
+        .where({ nome_praia })
         .select('avaliacao.*', 'praia.nome_praia');
 
-        return res.json(list);
+      return res.json(list);
     } catch (error) {
       next(error);
     }
