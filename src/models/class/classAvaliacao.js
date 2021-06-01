@@ -1,8 +1,8 @@
 class Avalaicao {
-  constructor(nota, comentario, id_praia) {
+  constructor(nota, comentario, id_local) {
     this.nota = nota;
     this.comentario = comentario;
-    this.id_praia = id_praia;
+    this.id_local = id_local;
   };
 
   set(nota) {
@@ -13,8 +13,8 @@ class Avalaicao {
     this._comentario = comentario;
   };
 
-  set(id_praia) {
-    this._idPraia = id_praia;
+  set(id_local) {
+    this._idLocal = id_local;
   };
 
   salvar(){};
