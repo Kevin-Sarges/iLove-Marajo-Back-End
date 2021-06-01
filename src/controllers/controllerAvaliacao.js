@@ -4,10 +4,10 @@ const Avaliacoes = require('../models/modelAvaliacao');
 module.exports = {
   async listaAvaliacoes(req, res, next) {
     try {
-      const { id_praia } = req.query;
+      const { id_local } = req.query;
 
       const list = await knex.table('avaliacao')
-        .where({ id_praia })
+        .where({ id_local })
         .select('*');
 
       return res.json(list);
@@ -17,10 +17,10 @@ module.exports = {
   },
 
   async avaliar(req, res, next) {
-    const { nota, comentario, id_praia } = req.body;
+    const { nota, comentario, id_local } = req.body;
 
     try {
-      const avalaicao = new Avaliacoes(nota, comentario, id_praia);
+      const avalaicao = new Avaliacoes(nota, comentario, id_local);
       await knex.table('avaliacao').insert(avalaicao);
 
       return res.status(201).json({ 'avaliacao': 'concluida' });

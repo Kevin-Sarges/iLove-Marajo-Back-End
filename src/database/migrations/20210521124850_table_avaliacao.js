@@ -5,8 +5,8 @@ exports.up = function(knex) {
     table.float('nota');
     table.text('comentario');
 
-    table.integer('id_praia');
-    table.foreign('id_praia').references('praia.id_praia');
+    table.integer('id_local');
+    table.foreign('id_local').references('praia.id_praia');
   });
 };
 
