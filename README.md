@@ -29,6 +29,6 @@
 
 ## Rotas Avaliação: 
 
-- Listando avaliações de uma praia: `http://localhost:3000/avaliacoes-praia?nome_praia="Nome da praia"`
+- Listando avaliações de uma praia: `http://localhost:3000/avaliacoes-praia?id_praia="Id da praia"`
 
 - Avaliar uma praia: `http://localhost:3000/avaliar-praia`
