@@ -2,6 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('avaliacao', table => {
     table.increments('id_avaliacao').primary();
+    table.text('nome_usuario');
     table.float('nota');
     table.text('comentario');
 

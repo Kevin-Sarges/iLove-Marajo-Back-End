@@ -17,10 +17,10 @@ module.exports = {
   },
 
   async avaliar(req, res, next) {
-    const { nota, comentario, id_local } = req.body;
+    const { nome_usuario, nota, comentario, id_local } = req.body;
 
     try {
-      const avalaicao = new Avaliacoes(nota, comentario, id_local);
+      const avalaicao = new Avaliacoes(nome_usuario, nota, comentario, id_local);
       await knex.table('avaliacao').insert(avalaicao);
 
       return res.status(201).json({ 'avaliacao': 'concluida' });
