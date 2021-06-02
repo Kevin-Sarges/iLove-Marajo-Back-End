@@ -29,12 +29,7 @@ module.exports = {
           .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
           .select(
             'municipios.nome_municipio',
-            'praia.nome_praia',
-            'praia.descricao',
-            'praia.foto', 
-            'praia.avaliacao',
-            'praia.lat', 
-            'praia.lon'
+            'praia.*'
           );
       }
        
@@ -58,12 +53,7 @@ module.exports = {
           .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
           .select(
             'municipios.nome_municipio', 
-            'praia.nome_praia',
-            'praia.descricao',
-            'praia.foto', 
-            'praia.avaliacao', 
-            'praia.lat', 
-            'praia.lon'
+            'praia.*'
           );
       }
        
