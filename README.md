@@ -31,4 +31,4 @@
 
 - Listando avaliações de uma praia: `http://localhost:3000/avaliacoes-praia?id_local=Id da praia`
 
-- Avaliar uma praia: `http://localhost:3000/avaliar-praia` { post avaliação: nota, comentario, id_local }
+- Avaliar uma praia: `http://localhost:3000/avaliar-praia` { post nome_usuario, avaliação: nota, comentario, id_local }
