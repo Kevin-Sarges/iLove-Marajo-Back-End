@@ -3,14 +3,32 @@ const Avaliacoes = require('../models/modelAvaliacao');
 
 module.exports = {
   async listaAvaliacoes(req, res, next) {
+    const { id_local } = req.query;
+    
     try {
-      const { id_local } = req.query;
-
-      const list = await knex.table('avaliacao')
+      const list = await knex
+        .table('avaliacao')
         .where({ id_local })
         .select('*');
 
       return res.json(list);
+    } catch (error) {
+      next(error);
+    }
+  },
+
+  async mediaAvaliacao(req, res, next) {
+    const { id_local } = req.query;
+
+    try {
+      const media = await knex
+        .table('avaliacao')
+        .where({ id_local })
+        .join('praia', 'praia.id_praia', '=', 'avaliacao.id_local')
+        .select('praia.nome_praia')
+        .avg('nota as avaliacao');
+
+      return res.json(media).status(201);
     } catch (error) {
       next(error);
     }
