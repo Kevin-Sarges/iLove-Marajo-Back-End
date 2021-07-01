@@ -1,11 +1,10 @@
 class Praia {
-  constructor(nome_praia, foto, lat, lon, descricao, id_avalaicao, municipio) {
+  constructor(nome_praia, foto, lat, lon, descricao, municipio) {
     this.nome_praia = nome_praia;
     this.foto = foto;
     this.lat = lat;
     this.lon = lon;
     this.descricao = descricao;
-    this.id_avalaicao = id_avalaicao;
     this.municipio = municipio;
   };
 
@@ -28,10 +27,6 @@ class Praia {
 
   set(descricao) {
     this._descricao = descricao;
-  };
-
-  set(id_avaliacao) {
-    this._idAvaliacao = id_avaliacao;
   };
 
   set(municipio) {
