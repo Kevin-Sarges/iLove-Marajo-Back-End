@@ -6,8 +6,6 @@ module.exports = {
     try {
       const list = await knex
         .select('*')
-        .where('avaliacao', '>=', '4.5')
-        .orderBy('avaliacao', 'desc')
         .table('praia')
         .limit(4);
 
@@ -72,7 +70,6 @@ module.exports = {
       lat,
       lon,
       descricao,
-      avaliacao,
       municipio,
     } = req.body;
 
@@ -84,7 +81,6 @@ module.exports = {
         lat, 
         lon, 
         descricao,
-        avaliacao, 
         municipio
       );
 
