@@ -6,10 +6,6 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "migrate": "knex migrate:make",
-    "runmigrate": "knex migrate:latest",
-    "seed": "knex seed:make",
-    "runseed": "knex seed:run",
     "ksrs": "knex seed:run --specific"
   },
   "dependencies": {
@@ -17,8 +13,7 @@
     "dotenv": "^9.0.1",
     "express": "^4.17.1",
     "knex": "^0.95.4",
-    "pg": "^8.6.0",
-    "sqlite3": "^5.0.2"
+    "pg": "^8.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
