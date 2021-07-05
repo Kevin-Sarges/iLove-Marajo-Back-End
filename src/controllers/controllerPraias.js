@@ -1,4 +1,4 @@
-const knex = require('../database');
+const knex = require('../database/connect');
 const Praias = require('../models/modelPraias');
 
 module.exports = {
@@ -6,7 +6,7 @@ module.exports = {
     try {
       const list = await knex
         .select('*')
-        .table('praia')
+        .table('praias')
         .limit(4);
 
       return res.json(list);
@@ -19,15 +19,15 @@ module.exports = {
     try {
       const { nome_praia } = req.query;
   
-      const query = knex.table('praia');
+      const query = knex.table('praias');
   
       if( nome_praia ) {
         query
           .where({ nome_praia })
-          .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
+          .join('municipios', 'municipios.id_municipio', '=', 'praias.id_municipio')
           .select(
-            'municipios.nome_municipio',
-            'praia.*'
+            'praias.*',
+            'municipios.nome_municipio'
           );
       }
        
@@ -41,17 +41,17 @@ module.exports = {
 
   async listaPraiasUnicoMunicipio(req, res, next) {
     try {
-      const { municipio } = req.query;
+      const { nome_municipio } = req.query;
 
-      const query = knex.table('praia');
+      const query = knex.table('praias');
 
-      if( municipio ) {
+      if( nome_municipio ) {
         query
-          .where({ municipio })
-          .join('municipios', 'municipios.nome_municipio', '=', 'praia.municipio')
+          .where({ nome_municipio })
+          .join('municipios', 'municipios.id_municipio', '=', 'praias.id_municipio')
           .select(
-            'municipios.nome_municipio', 
-            'praia.*'
+            'praias.*',
+            'municipios.nome_municipio'
           );
       }
        
@@ -70,7 +70,7 @@ module.exports = {
       lat,
       lon,
       descricao,
-      municipio,
+      id_municipio,
     } = req.body;
 
     try {
@@ -81,10 +81,10 @@ module.exports = {
         lat, 
         lon, 
         descricao,
-        municipio
+        id_municipio
       );
 
-      await knex.table('praia').insert(praias);
+      await knex.table('praias').insert(praias);
 
       return res.status(201).json({ 'dados': 'salvos' });
 

@@ -1,4 +1,4 @@
-const knex = require('../database');
+const knex = require('../database/connect');
 const Avaliacao = require('./class/classAvaliacao');
 
 class Avaliacoes extends Avaliacao {

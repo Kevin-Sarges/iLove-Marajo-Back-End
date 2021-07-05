@@ -1,9 +1,9 @@
-const knex = require('../database');
+const knex = require('../database/connect');
 const Praia = require('./class/classPraia');
 
 class Praias extends Praia {
-  constructor(nome_praia, foto, lat, lon, descricao, municipio) {
-    super(nome_praia, foto, lat, lon, descricao, municipio);
+  constructor(nome_praia, foto, lat, lon, descricao, id_municipio) {
+    super(nome_praia, foto, lat, lon, descricao, id_municipio);
   };
 
   async salvar() {
@@ -13,7 +13,7 @@ class Praias extends Praia {
       lat: this._lat,
       lon: this._lon,
       descricao: this._descricao,
-      municipio: this._municipio,
+      id_municipio: this._idMunicipio,
     });
   };
 }

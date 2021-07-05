@@ -25,7 +25,7 @@
 
 - Pesquisando por uma unica praia: `http://localhost:3000/praia?nome_praia=Nome da praia`
 
-- Pesquisando praias de um municipio: `http://localhost:3000/praias-municipio?municipio=Nome do municipio`
+- Pesquisando praias de um municipio: `http://localhost:3000/praias-municipio?nome_municipio=Nome do municipio`
 
 ## Rotas Avaliação: 
 
