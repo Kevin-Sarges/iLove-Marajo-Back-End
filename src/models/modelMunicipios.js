@@ -1,4 +1,4 @@
-const knex = require('../database');
+const knex = require('../database/connect');
 const Municipio = require('./class/classMunicipio');
 
 class Municipios extends Municipio {
