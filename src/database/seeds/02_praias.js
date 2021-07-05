@@ -1,10 +1,10 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('praia').del()
+  return knex('praias').del()
     .then(function () {
       // Inserts seed entries
-      return knex('praia').insert([
+      return knex('praias').insert([
         {
           id_praia: 1,
           nome_praia: 'Praia Grande',
@@ -12,7 +12,7 @@ exports.seed = function(knex) {
           foto: 'https://firebasestorage.googleapis.com/v0/b/ilove-820df.appspot.com/o/Salvaterra%2FPontos%2FPraiaGrande.jpg?alt=media&token=8f9ee9fa-8091-4cb5-b752-e1bd6101798f',
           lat: '-0.7628496',
           lon: '-48.511852',
-          municipio: 'Salvaterra',
+          id_municipio: 1,
         },
 
         {
@@ -22,7 +22,7 @@ exports.seed = function(knex) {
           foto: 'https://firebasestorage.googleapis.com/v0/b/ilove-820df.appspot.com/o/Salvaterra%2FPontos%2FPortinho.PNG?alt=media&token=845b28db-8f62-49ae-af79-d3d2992bd4de',
           lat: '-0.7528755',
           lon: '-48.511443',
-          municipio: 'Salvaterra',
+          id_municipio: 1,
         }
       ]);
     });
