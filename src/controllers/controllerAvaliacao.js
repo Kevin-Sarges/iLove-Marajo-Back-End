@@ -1,4 +1,4 @@
-const knex = require('../database');
+const knex = require('../database/connect');
 const Avaliacoes = require('../models/modelAvaliacao');
 
 module.exports = {
@@ -24,8 +24,9 @@ module.exports = {
       const media = await knex
         .table('avaliacao')
         .where({ id_local })
-        .join('praia', 'praia.id_praia', '=', 'avaliacao.id_local')
-        .select('praia.nome_praia')
+        .join('praias', 'praias.id_praia', '=', 'avaliacao.id_local')
+        .groupBy('praias.nome_praia')
+        .select('praias.nome_praia')
         .avg('nota as avaliacao');
 
       return res.json(media).status(201);

@@ -1,4 +1,4 @@
-const knex = require('../database');
+const knex = require('../database/connect');
 const Municipios = require('../models/modelMunicipios');
 
 module.exports = {
@@ -21,7 +21,7 @@ module.exports = {
       if( nome_municipio ) {
         query
           .where({ nome_municipio })
-          .select('nome_municipio');
+          .select('*');
       }
       
       const result = await query;
