@@ -7,6 +7,11 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL,
 
+    pool: {
+      min: 2,
+      max: 5
+    },
+
     migrations: {
       directory: path.resolve(__dirname, 'src', 'database', 'migrations')
     },
@@ -20,6 +25,11 @@ module.exports = {
     client: 'pg',
     connection: process.env.DATABASE_URL_TEST,
 
+    pool: {
+      min: 2,
+      max: 5
+    },
+
     migrations: {
       directory: path.resolve(__dirname, 'src', '__tests__', 'migrations')
     }
@@ -30,6 +40,11 @@ module.exports = {
     connection: {
       connectionString: process.env.DATABASE_URL,
       ssl: { rejectUnauthorized: false }
+    },
+
+    pool: {
+      min: 2,
+      max: 5
     },
 
     migrations: {
