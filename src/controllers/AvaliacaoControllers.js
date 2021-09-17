@@ -6,7 +6,7 @@ module.exports = {
     try {
       const { id_local } = req.params;
 
-      const local = await Local.findByPk(id_cidade, {
+      const local = await Local.findByPk(id_local, {
         include: {
           association: 'avaliacoes'
         }
