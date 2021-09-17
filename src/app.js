@@ -3,6 +3,7 @@ const cors = require('cors');
 
 require('./database/connect');
 const routesCidade = require('./routes/routesCidades');
+const routesLocal = require('./routes/routesLocais');
 
 const app = express();
 
@@ -11,5 +12,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routesCidade);
+app.use(routesLocal);
 
 module.exports = app;
