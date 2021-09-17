@@ -14,7 +14,7 @@ module.exports = {
       });
 
       if(cidade === null) {
-        return res.status(404).json({ Error: 'Local não encontrado' });
+        return res.status(404).json({ Error: 'Cidade não encontrado' });
       }
 
       return res.json(cidade);
