@@ -1,1 +1,1 @@
-web: yarn start && yarn knex migrate:latest
+web: yarn start && yarn sequlize db:migrate
