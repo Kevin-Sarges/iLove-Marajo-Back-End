@@ -1,8 +1,8 @@
 const routes = require('express').Router();
 const AvaliacaoController = require('../controllers/AvaliacaoControllers');
 
-routes.get('/avaliacao/:place_id/avaliacoes', AvaliacaoController.index);
+routes.get('/avaliacao/:id_local/avaliacoes', AvaliacaoController.index);
 
-routes.post('/avaliacao/:place_id/avaliar', AvaliacaoController.store);
+routes.post('/avaliacao/:id_local/avaliar', AvaliacaoController.store);
 
 module.exports = routes;
