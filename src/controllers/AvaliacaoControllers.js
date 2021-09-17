@@ -22,7 +22,7 @@ module.exports = {
     }
   },
 
-  async store(rea, res, next) {
+  async store(req, res, next) {
     try {
       const { id_local } = req.params;
       const { 
