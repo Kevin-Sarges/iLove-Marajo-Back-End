@@ -6,7 +6,7 @@
 
 - Express.
 
-- Knex.
+- Sequelize.
 
 ## Heroku URL Base
 
