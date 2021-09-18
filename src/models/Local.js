@@ -10,7 +10,8 @@ class Local extends Model {
       lon: DataTypes.STRING,
       descricao: DataTypes.STRING,
     }, {
-      sequelize
+      sequelize,
+      tableName: 'locais'
     });
   }
 
