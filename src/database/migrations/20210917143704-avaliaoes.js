@@ -11,7 +11,7 @@ module.exports = {
       },
 
       nome_usuario: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(50)
       },
 
       nota: {
@@ -20,7 +20,7 @@ module.exports = {
       },
 
       comentario: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(500)
       },
 
       id_local: {

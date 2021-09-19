@@ -11,32 +11,32 @@ module.exports = {
       },
 
       local: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: true
       },
 
       nome_local: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(50),
         allowNull: true
       },
 
       foto: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(500),
         allowNull: true
       },
 
       lat: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(100),
         allowNull: true
       },
 
       lon: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(100),
         allowNull: true
       },
 
       descricao: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(500),
         allowNull: true
       },
 
