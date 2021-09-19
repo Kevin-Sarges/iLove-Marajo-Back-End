@@ -36,9 +36,9 @@ Ex: `http://localhost:3000/cidades/1/locais` nesse exemplo ele vai busca os todo
 
 Se na rota de locais o principal era o id da cidade nas rotas de avaliaçao já é diferente, porque aqui o principal é o id do local para poder fazer as buscas e principalmente fazer uma avalicação.
 
-- Listando avaliações de uma praia: `http://localhost:3000/avaliacao/id_local/avaliacoes` => esta rota irá busca todas as avaliações de um local pelo seu id.
+- Listando avaliações de um local: `http://localhost:3000/avaliacao/id_local/avaliacoes` => esta rota irá busca todas as avaliações de um local pelo seu id.
 
-- Avaliar uma praia: `http://localhost:3000/avaliacao/id_local/avaliar` => essa rota é para avaliar um local, importante te o id do local na rota.
+- Avaliar um local: `http://localhost:3000/avaliacao/id_local/avaliar` => essa rota é para avaliar um local, importante te o id do local na rota.
 Ex post: 
 ```` json
 {

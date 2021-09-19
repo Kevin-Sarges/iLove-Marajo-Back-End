@@ -7,7 +7,8 @@ class Avaliacao extends Model {
       nota: DataTypes.FLOAT,
       comentario: DataTypes.STRING(500)
     }, {
-      sequelize
+      sequelize,
+      tableName: 'avaliacoes'
     });
   }
 
