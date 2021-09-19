@@ -1,1 +1,1 @@
-web: yarn start && yarn sequlize db:migrate
+web: yarn start && yarn sequelize db:migrate
