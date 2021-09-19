@@ -3,9 +3,9 @@ const { Model, DataTypes } = require('sequelize');
 class Avaliacao extends Model {
   static init(sequelize) {
     super.init({
-      nome_usuario: DataTypes.STRING,
+      nome_usuario: DataTypes.STRING(50),
       nota: DataTypes.FLOAT,
-      comentario: DataTypes.STRING,
+      comentario: DataTypes.STRING(500)
     }, {
       sequelize
     });

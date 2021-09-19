@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class Cidade extends Model {
   static init(sequelize) {
     super.init({
-      nome_cidade: DataTypes.STRING
+      nome_cidade: DataTypes.STRING(50)
     }, {
       sequelize
     });

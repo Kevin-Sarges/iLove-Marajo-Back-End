@@ -3,12 +3,12 @@ const { Model, DataTypes } = require('sequelize');
 class Local extends Model {
   static init(sequelize) {
     super.init({
-      local: DataTypes.STRING,
-      nome_local: DataTypes.STRING,
-      foto: DataTypes.STRING,
-      lat: DataTypes.STRING,
-      lon: DataTypes.STRING,
-      descricao: DataTypes.STRING,
+      local: DataTypes.STRING(50),
+      nome_local: DataTypes.STRING(50),
+      foto: DataTypes.STRING(500),
+      lat: DataTypes.STRING(100),
+      lon: DataTypes.STRING(100),
+      descricao: DataTypes.STRING(500),
     }, {
       sequelize,
       tableName: 'locais'
