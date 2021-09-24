@@ -44,7 +44,7 @@ Ex: `http://localhost:3000/cidades/1/locais` nesse exemplo ele vai busca os todo
 
 - Pesquisando pelo nome do local: `http://localhost:3000/cidades/id_cidade/local/nome?nome_local=Nome do local` => nesta rota você pode fazer as buscas pelo nome de um local de um determinada cidade(o id que esteja na rota).
 
-## Rotas de Avaliação: 
+### Rotas de Avaliação: 
 Se na rota de locais o principal era o id da cidade nas rotas de avaliaçao já é diferente, porque aqui o principal é o id do local para poder fazer as buscas e principalmente fazer uma avalicação.
 
 - Listando avaliações de um local: `http://localhost:3000/avaliacao/id_local/avaliacoes` => esta rota irá busca todas as avaliações de um local pelo seu id.
