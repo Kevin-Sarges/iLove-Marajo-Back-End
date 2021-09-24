@@ -1,9 +1,12 @@
-const routes = require('express').Router();
-const CidadeController = require('../controllers/CidadeControllers');
+import { Router } from 'express';
+import { CidadeController } from '../controllers/CidadeControllers'; 
 
-routes.get('/cidades', CidadeController.index);
-routes.get('/cidades/cidade', CidadeController.show);
+const routesCidade = Router();
+const ciddadeController = new CidadeController();
 
-routes.post('/criar-cidade', CidadeController.store);
+routesCidade.get('/cidades', ciddadeController.index);
+routesCidade.get('/cidades/cidade', ciddadeController.show);
 
-module.exports = routes;
+routesCidade.post('/criar-cidade', ciddadeController.store);
+
+export { routesCidade };

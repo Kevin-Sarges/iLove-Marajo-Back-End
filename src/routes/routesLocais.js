@@ -1,10 +1,13 @@
-const routes = require('express').Router();
-const LocalController = require('../controllers/LocalControllers');
+import { Router } from 'express';
+import { LocalController } from '../controllers/LocalControllers';
 
-routes.get('/cidades/:id_cidade/locais', LocalController.index);
-routes.get('/cidades/:id_cidade/local', LocalController.locais);
-routes.get('/cidades/:id_cidade/local/nome', LocalController.show);
+const routesLocal = Router();
+const localController = new LocalController();
 
-routes.post('/cidades/:id_cidade/criar-local', LocalController.store);
+routesLocal.get('/cidades/:id_cidade/locais', localController.index);
+routesLocal.get('/cidades/:id_cidade/local', localController.locais);
+routesLocal.get('/cidades/:id_cidade/local/nome', localController.show);
 
-module.exports = routes;
+routesLocal.post('/cidades/:id_cidade/criar-local', localController.store);
+
+export { routesLocal };

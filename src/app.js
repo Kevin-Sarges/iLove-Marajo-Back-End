@@ -1,10 +1,10 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 
-require('./database/connect');
-const routesCidade = require('./routes/routesCidades');
-const routesLocal = require('./routes/routesLocais');
-const routesAvaliacao = require('./routes/routesAvaliacoes');
+import './database/connect';
+import { routesCidade } from './routes/routesCidades';
+import { routesLocal } from './routes/routesLocais';
+import { routesAvaliacao } from './routes/routesAvaliacoes';
 
 const app = express();
 
@@ -16,4 +16,4 @@ app.use(routesCidade);
 app.use(routesLocal);
 app.use(routesAvaliacao);
 
-module.exports = app;
+export { app }

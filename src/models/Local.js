@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+import { Model, DataTypes } from 'sequelize';
 
 class Local extends Model {
   static init(sequelize) {
@@ -28,4 +28,4 @@ class Local extends Model {
   }
 }
 
-module.exports = Local;
+export { Local };

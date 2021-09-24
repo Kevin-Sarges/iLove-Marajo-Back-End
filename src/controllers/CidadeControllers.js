@@ -1,44 +1,45 @@
-const { Op } = require('sequelize');
-const Cidade =require('../models/Cidade');
+import { CidadeServices } from '../services/CidadeServices';
 
-module.exports = {
+class CidadeController {
   async index(req, res, next) {
     try {
-      const cidade = await Cidade.findAll();
+      const cidade = new CidadeServices();
 
-      return res.json(cidade);
+      const listando = await cidade.index();
+
+      return res.json(listando);
     } catch (error) {
       next(error);
     }
-  },
+  };
 
   async show(req, res, next) {
     try {
       const { nome_cidade } = req.query;
 
-      const cidade = await Cidade.findAll({
-        where: {
-          nome_cidade: {
-            [Op.iLike]: `${nome_cidade}%`
-          }
-        }
-      });
+      const cidade = new CidadeServices();
+      
+      const buscandoCidade = await cidade.show({ nome_cidade });
 
-      return res.json(cidade);
+      return res.json(buscandoCidade);
     } catch (error) {
       next(error);
     }
-  },
+  };
 
   async store(req, res, next) {
     try {
       const { nome_cidade } = req.body;
 
-      const criarCidade = await Cidade.create({ nome_cidade });
+      const cidade = new CidadeServices();
 
-      return res.json(criarCidade);
+      const criandoCidade = cidade.store({ nome_cidade });
+
+      return res.status(201).json(criandoCidade);
     } catch (error) {
       next(error);
     }
   }
 }
+
+export { CidadeController };

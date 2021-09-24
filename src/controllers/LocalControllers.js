@@ -1,79 +1,49 @@
-const { Op } = require('sequelize');
-const Cidade = require('../models/Cidade');
-const Local = require('../models/Local');
+import { LocalServices } from '../services/LocalServices';
 
-module.exports = {
+class LocalController {
   async index(req, res, next) {
     try {
       const { id_cidade } = req.params;
       
-      const cidade = await Cidade.findByPk(id_cidade, {
-        include: {
-          association: 'local',
-        }
-      });
+      const local = new LocalServices();
+      
+      const listandoLocalis = await local.index({ id_cidade });
 
-      if(cidade === null) {
-        return res.status(404).json({ Error: 'Cidade não encontrado' });
-      }
-
-      return res.json(cidade);
+      return res.json(listandoLocalis);
     } catch (error) {
       next(error);
     }
-  },
+  };
 
   async locais(req, res, next) {
     try {
       const { id_cidade } = req.params;
       const { local } = req.query;
 
-      const buscaLocal = await Cidade.findAll({
-        where: { id: id_cidade },
+      const locais = new LocalServices();
 
-        include: [
-          {
-            association: 'local',
-            where: {
-              local: {
-                [Op.iLike]: `${ local }%`
-              }
-            }
-          }
-        ]
-      });
+      const buscandoLocal = await locais.locais({ id_cidade, local });
 
-      return res.json(buscaLocal);
+      return res.json(buscandoLocal);
     } catch (error) {
       next(error);
     }
-  },
+  };
 
   async show(req, res, next) {
     try {
       const { id_cidade } = req.params;
       const { nome_local } = req.query;
 
-      const buscandoNomeLocal = await Cidade.findAll({
-        where: { id: id_cidade },
+      const locais = new LocalController();
 
-        include: [
-          {
-            association: 'local',
-            where: {
-              nome_local: {
-                [Op.iLike]: `${ nome_local }%`
-              }
-            }
-          }
-        ]
-      });
+      const buscandoNomeLocal = await locais.show({ id_cidade, nome_local });
 
       return res.json(buscandoNomeLocal);
     } catch (error) {
       next(error);
     }
-  },
+  };
 
   async store(req, res, next) {
     try {
@@ -87,13 +57,9 @@ module.exports = {
         descricao
       } = req.body;
 
-      const cidade = await Cidade.findByPk(id_cidade);
+      const locais = new LocalServices();
 
-      if(!cidade) {
-        return res.status(400).json({ error: 'Cidade não encontrada' });
-      }
-
-      const criarLocal = await Local.create({
+      const criandoLocal = await locais.store({ 
         local,
         nome_local,
         foto,
@@ -103,9 +69,11 @@ module.exports = {
         id_cidade
       });
 
-      return res.json(criarLocal);
+      return res.status(201).json(criandoLocal);
     } catch (error) {
       next(error);
     }
   }
 }
+
+export { LocalController };

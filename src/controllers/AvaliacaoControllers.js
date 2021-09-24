@@ -1,26 +1,19 @@
-const Local = require('../models/Local');
-const Avaliacao = require('../models/Avaliacao');
+import { AvaliacaoServices } from '../services/AvaliacaoServices';
 
-module.exports = {
+class AvaliacaoController {
   async index(req, res, next) {
     try {
       const { id_local } = req.params;
 
-      const local = await Local.findByPk(id_local, {
-        include: {
-          association: 'avaliacoes'
-        }
-      });
+      const avaliacao = new AvaliacaoServices();
 
-      if(local === null) {
-        return res.status(404).json({ error: 'Avaliações não encontradas' });
-      }
+      const avaliacoesLocais = await avaliacao.index({ id_local });
 
-      return res.json(local);
+      return res.json(avaliacoesLocais);
     } catch (error) {
       next(error);
     }
-  },
+  };
 
   async store(req, res, next) {
     try {
@@ -31,22 +24,20 @@ module.exports = {
         comentario
       } = req.body;
 
-      const local = await Local.findByPk(id_local);
+      const avaliacao = new AvaliacaoServices();
 
-      if(!local) {
-        return res.status(404).json({ error: 'Local não encontrado' });
-      }
-
-      const avaliarLocal = await Avaliacao.create({ 
+      const avaliarLocal = await avaliacao.store({
         nome_usuario,
         nota,
         comentario,
         id_local
-      })
+      });
 
-      return res.json(avaliarLocal);
+      return res.status(201).json(avaliarLocal);
     } catch (error) {
       next(error);
     }
   }
 }
+
+export { AvaliacaoController };
