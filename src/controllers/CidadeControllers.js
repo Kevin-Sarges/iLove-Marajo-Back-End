@@ -33,7 +33,7 @@ class CidadeController {
 
       const cidade = new CidadeServices();
 
-      const criandoCidade = cidade.store({ nome_cidade });
+      const criandoCidade = await cidade.store({ nome_cidade });
 
       return res.status(201).json(criandoCidade);
     } catch (error) {

@@ -11,7 +11,8 @@ describe('Teste das rotas Post da Aplicação', () => {
     console.log(response.body);
 
     expect(response.status).toBe(201);
-    expect(response.body).toMatchObject({});
+    expect(response.body).toHaveProperty('id');
+    //expect(response.body).toMatchObject({});
   });
 
   it('Craindo Novo Local', async () => {
