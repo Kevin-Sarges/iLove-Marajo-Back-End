@@ -1,8 +1,11 @@
-const routes = require('express').Router();
-const AvaliacaoController = require('../controllers/AvaliacaoControllers');
+import { Router } from 'express';
+import{ AvaliacaoController } from '../controllers/AvaliacaoControllers';
 
-routes.get('/avaliacao/:id_local/avaliacoes', AvaliacaoController.index);
+const routesAvaliacao = Router();
+const avaliacaoController = new AvaliacaoController();
 
-routes.post('/avaliacao/:id_local/avaliar', AvaliacaoController.store);
+routesAvaliacao.get('/avaliacao/:id_local/avaliacoes', avaliacaoController.index);
 
-module.exports = routes;
+routesAvaliacao.post('/avaliacao/:id_local/avaliar', avaliacaoController.store);
+
+export { routesAvaliacao };

@@ -1,10 +1,11 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from 'sequelize';
+
+import { Cidade } from '../models/Cidade';
+import { Local } from '../models/Local';
+import { Avaliacao } from '../models/Avaliacao';
+
 const enviroment = process.env.NODE_ENV || 'development';
 const dbConfig = require('../config/config')[enviroment];
-
-const Cidade = require('../models/Cidade');
-const Local = require('../models/Local');
-const Avaliacao = require('../models/Avaliacao');
 
 const connection = new Sequelize(dbConfig);
 
@@ -16,4 +17,4 @@ Cidade.associate(connection.models);
 Local.associate(connection.models);
 Avaliacao.associate(connection.models);
 
-module.exports = connection;
+export { connection };

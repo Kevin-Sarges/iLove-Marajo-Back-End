@@ -4,8 +4,14 @@
   "main": "src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "yarn clean && yarn build-babel",
+    "start": "yarn build && node ./build/server.js",
+    "dev": "nodemon --watch src --exec babel-node src/server.js",
+    "pretest": "cross-env NODE_ENV=test yarn sequelize db:migrate",
+    "test": "jest",
+    "posttest": "rm ./src/database/database.test.sqlite"
   },
   "dependencies": {
     "@babel/preset-env": "^7.15.6",

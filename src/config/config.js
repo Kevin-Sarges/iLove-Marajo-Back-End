@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 
 module.exports = {
   development: {
@@ -20,11 +21,18 @@ module.exports = {
   },
 
   test: {
-    username: 'root',
-    password: 1234,
-    database: 'database_test',
-    host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'sqlite',
+    storage: path.resolve(__dirname, '..', 'database', 'database.test.sqlite'),
+    dialectOptions: {
+      ssl: {
+        rejectUnauthorized: false
+      }
+    },
+    define: {
+      timestamps: true,
+      underscored: true,
+      underscoredAll: true
+    }
   },
 
   production: {
