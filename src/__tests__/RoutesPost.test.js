@@ -8,11 +8,8 @@ describe('Teste das rotas Post da Aplicação', () => {
       nome_cidade: 'Cidade teste'
     });
 
-    console.log(response.body);
-
     expect(response.status).toBe(201);
     expect(response.body).toHaveProperty('id');
-    //expect(response.body).toMatchObject({});
   });
 
   it('Craindo Novo Local', async () => {
@@ -31,7 +28,7 @@ describe('Teste das rotas Post da Aplicação', () => {
     expect(response.body).toHaveProperty('id_cidade');
   });
 
-  it('Craindo Novo Local', async () => {
+  it('Avaliando um local', async () => {
     const response = await request(app).post('/avaliacao/1/avaliar').send({
       nome_usuario: 'João',
       nota: 4.5,
