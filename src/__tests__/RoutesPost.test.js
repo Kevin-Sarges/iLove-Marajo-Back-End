@@ -28,7 +28,7 @@ describe('Teste das rotas Post da Aplicação', () => {
     expect(response.body).toHaveProperty('id_cidade');
   });
 
-  it('Avaliando um local', async () => {
+  it('Craindo Novo Local', async () => {
     const response = await request(app).post('/avaliacao/1/avaliar').send({
       nome_usuario: 'João',
       nota: 4.5,
@@ -44,4 +44,4 @@ describe('Teste das rotas Post da Aplicação', () => {
   afterAll(() => {
     connection.close();
   });
-})
+});
