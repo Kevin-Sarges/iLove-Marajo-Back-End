@@ -10,8 +10,8 @@ No momento são essas alterações.
 - As colunas das antigas tabelas também sofreram algumas alterações, como a coluna da tabela município onde era armazenado o `nome_municipio` agora se chama `nome_cidade`.
 - A tabela de locais possui agora uma coluna para identificar o local, uma coluna para o nome dele, uma coluna para uma foto além de latitude, longitude e descrição você pode ver no diretório `src/models/Local.js`.
 - As rotas também tiveram alterações como  mostra logo abaixo.
-- Adicionei o babel para eu poder usar um javascripit mas moderno.
-- Adicionai o jest para criar os teste da aplição.
+- Adicionei o `babel` para eu poder usar um javascripit mas moderno.
+- Adicionai o `jest` para criar os teste da aplição.
 
 ## Tecnologias usadas
 
