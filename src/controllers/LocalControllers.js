@@ -35,7 +35,7 @@ class LocalController {
       const { id_cidade } = req.params;
       const { nome_local } = req.query;
 
-      const locais = new LocalController();
+      const locais = new LocalServices();
 
       const buscandoNomeLocal = await locais.show({ id_cidade, nome_local });
 
