@@ -21,8 +21,11 @@ module.exports = {
   },
 
   test: {
-    dialect: 'sqlite',
-    storage: path.resolve(__dirname, '..', 'database', 'database.test.sqlite'),
+    username: process.env.USER_DB_TEST,
+    password: process.env.PASS_DB_TEST,
+    database: process.env.NAME_DB_TEST,
+    host: process.env.HOST_DB_TEST,
+    dialect: 'postgres',
     dialectOptions: {
       ssl: {
         rejectUnauthorized: false

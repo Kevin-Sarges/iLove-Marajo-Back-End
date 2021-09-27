@@ -11,7 +11,7 @@
     "dev": "nodemon --watch src --exec babel-node src/server.js",
     "pretest": "cross-env NODE_ENV=test yarn sequelize db:migrate",
     "test": "jest",
-    "posttest": "rm ./src/database/database.test.sqlite"
+    "posttest": "cross-env NODE_ENV=test yarn sequelize db:migrate:undo:all"
   },
   "dependencies": {
     "@babel/preset-env": "^7.15.6",
@@ -36,7 +36,6 @@
     "cross-env": "^7.0.3",
     "jest": "^27.2.1",
     "nodemon": "^2.0.7",
-    "sqlite3": "^5.0.2",
     "supertest": "^6.1.6"
   }
 }
