@@ -1,19 +1,19 @@
-import { LocalServices } from '../services/LocalServices';
+import { LocalServices } from "../services/LocalServices";
 
 class LocalController {
   async index(req, res, next) {
     try {
       const { id_cidade } = req.params;
-      
+
       const local = new LocalServices();
-      
+
       const listandoLocalis = await local.index({ id_cidade });
 
       return res.json(listandoLocalis);
     } catch (error) {
       next(error);
     }
-  };
+  }
 
   async locais(req, res, next) {
     try {
@@ -28,7 +28,7 @@ class LocalController {
     } catch (error) {
       next(error);
     }
-  };
+  }
 
   async show(req, res, next) {
     try {
@@ -43,30 +43,23 @@ class LocalController {
     } catch (error) {
       next(error);
     }
-  };
+  }
 
   async store(req, res, next) {
     try {
       const { id_cidade } = req.params;
-      const {
-        local,
-        nome_local,
-        foto,
-        lat,
-        lon,
-        descricao
-      } = req.body;
+      const { local, nome_local, foto, lat, lon, descricao } = req.body;
 
       const locais = new LocalServices();
 
-      const criandoLocal = await locais.store({ 
+      const criandoLocal = await locais.store({
         local,
         nome_local,
         foto,
         lat,
         lon,
         descricao,
-        id_cidade
+        id_cidade,
       });
 
       return res.status(201).json(criandoLocal);

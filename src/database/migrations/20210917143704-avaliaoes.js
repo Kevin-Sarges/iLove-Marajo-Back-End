@@ -1,52 +1,52 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('avaliacoes', { 
+    await queryInterface.createTable("avaliacoes", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: true
+        allowNull: true,
       },
 
       nome_usuario: {
-        type: Sequelize.STRING(50)
+        type: Sequelize.STRING(50),
       },
 
       nota: {
         type: Sequelize.FLOAT,
-        allowNull: true
+        allowNull: true,
       },
 
       comentario: {
-        type: Sequelize.STRING(500)
+        type: Sequelize.STRING(500),
       },
 
       id_local: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'locais',
-          key: 'id'
+          model: "locais",
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
 
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
 
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('avaliacoes');
-  }
+    await queryInterface.dropTable("avaliacoes");
+  },
 };

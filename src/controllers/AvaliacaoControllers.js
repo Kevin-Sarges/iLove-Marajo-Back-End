@@ -1,4 +1,4 @@
-import { AvaliacaoServices } from '../services/AvaliacaoServices';
+import { AvaliacaoServices } from "../services/AvaliacaoServices";
 
 class AvaliacaoController {
   async index(req, res, next) {
@@ -13,16 +13,12 @@ class AvaliacaoController {
     } catch (error) {
       next(error);
     }
-  };
+  }
 
   async store(req, res, next) {
     try {
       const { id_local } = req.params;
-      const { 
-        nome_usuario,
-        nota,
-        comentario
-      } = req.body;
+      const { nome_usuario, nota, comentario } = req.body;
 
       const avaliacao = new AvaliacaoServices();
 
@@ -30,7 +26,7 @@ class AvaliacaoController {
         nome_usuario,
         nota,
         comentario,
-        id_local
+        id_local,
       });
 
       return res.status(201).json(avaliarLocal);

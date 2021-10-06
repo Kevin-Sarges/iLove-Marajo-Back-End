@@ -1,4 +1,4 @@
-import { CidadeServices } from '../services/CidadeServices';
+import { CidadeServices } from "../services/CidadeServices";
 
 class CidadeController {
   async index(req, res, next) {
@@ -11,21 +11,21 @@ class CidadeController {
     } catch (error) {
       next(error);
     }
-  };
+  }
 
   async show(req, res, next) {
     try {
       const { nome_cidade } = req.query;
 
       const cidade = new CidadeServices();
-      
+
       const buscandoCidade = await cidade.show({ nome_cidade });
 
       return res.json(buscandoCidade);
     } catch (error) {
       next(error);
     }
-  };
+  }
 
   async store(req, res, next) {
     try {

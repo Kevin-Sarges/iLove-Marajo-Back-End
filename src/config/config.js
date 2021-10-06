@@ -1,5 +1,5 @@
-require('dotenv').config();
-const path = require('path');
+require("dotenv").config();
+const path = require("path");
 
 module.exports = {
   development: {
@@ -7,17 +7,17 @@ module.exports = {
     password: process.env.PASS_DB_DEV,
     database: process.env.NAME_DB_DEV,
     host: process.env.HOST_DB_DEV,
-    dialect: 'postgres',
+    dialect: "postgres",
     dialectOptions: {
       ssl: {
-        rejectUnauthorized: false
-      }
+        rejectUnauthorized: false,
+      },
     },
     define: {
       timestamps: true,
       underscored: true,
-      underscoredAll: true
-    }
+      underscoredAll: true,
+    },
   },
 
   test: {
@@ -25,17 +25,17 @@ module.exports = {
     password: process.env.PASS_DB_TEST,
     database: process.env.NAME_DB_TEST,
     host: process.env.HOST_DB_TEST,
-    dialect: 'postgres',
+    dialect: "postgres",
     dialectOptions: {
       ssl: {
-        rejectUnauthorized: false
-      }
+        rejectUnauthorized: false,
+      },
     },
     define: {
       timestamps: true,
       underscored: true,
-      underscoredAll: true
-    }
+      underscoredAll: true,
+    },
   },
 
   production: {
@@ -43,16 +43,16 @@ module.exports = {
     password: process.env.PASS_DB,
     database: process.env.NAME_DB,
     host: process.env.HOST_DB,
-    dialect: 'postgres',
+    dialect: "postgres",
     dialectOptions: {
       ssl: {
-        rejectUnauthorized: false
-      }
+        rejectUnauthorized: false,
+      },
     },
     define: {
       timestamps: true,
       underscored: true,
-      underscoredAll: true
-    }
-  }
-}
+      underscoredAll: true,
+    },
+  },
+};

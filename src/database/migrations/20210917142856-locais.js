@@ -1,69 +1,69 @@
-'use strict';
+"use strict";
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('locais', { 
+    await queryInterface.createTable("locais", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: true
+        allowNull: true,
       },
 
       local: {
         type: Sequelize.STRING(50),
-        allowNull: true
+        allowNull: true,
       },
 
       nome_local: {
         type: Sequelize.STRING(50),
-        allowNull: true
+        allowNull: true,
       },
 
       foto: {
         type: Sequelize.STRING(500),
-        allowNull: true
+        allowNull: true,
       },
 
       lat: {
         type: Sequelize.STRING(100),
-        allowNull: true
+        allowNull: true,
       },
 
       lon: {
         type: Sequelize.STRING(100),
-        allowNull: true
+        allowNull: true,
       },
 
       descricao: {
         type: Sequelize.STRING(500),
-        allowNull: true
+        allowNull: true,
       },
 
       id_cidade: {
         type: Sequelize.INTEGER,
         allowNull: true,
         references: {
-          model: 'cidades',
-          key: 'id'
+          model: "cidades",
+          key: "id",
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE",
       },
 
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
 
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
       },
     });
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('locais');
-  }
+    await queryInterface.dropTable("locais");
+  },
 };
