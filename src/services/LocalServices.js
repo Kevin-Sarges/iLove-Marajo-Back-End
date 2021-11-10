@@ -45,7 +45,7 @@ class LocalServices {
           association: "local",
           where: {
             nome_local: {
-              [Op.iLike]: `${nome_local}%`,
+              [Op.iLike]: `%${nome_local}%`,
             },
           },
         },
