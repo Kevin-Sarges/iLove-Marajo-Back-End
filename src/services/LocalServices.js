@@ -1,12 +1,21 @@
 import { Op } from "sequelize";
 import { Cidade } from "../models/Cidade";
 import { Local } from "../models/Local";
+import sequelize from "sequelize";
 
 class LocalServices {
   async index({ id_cidade }) {
     const cidade = await Cidade.findByPk(id_cidade, {
       include: {
         association: "local",
+
+        include: {
+          association: "avaliacoes",
+
+          attribute: {
+            include: [[sequelize.fn("sum", sequelize.col("nota")), "valor"]],
+          },
+        },
       },
     });
 
