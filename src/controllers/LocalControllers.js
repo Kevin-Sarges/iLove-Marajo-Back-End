@@ -3,11 +3,11 @@ import { LocalServices } from "../services/LocalServices";
 class LocalController {
   async index(req, res, next) {
     try {
-      const { id_cidade } = req.params;
+      const { id_cidade, id_local } = req.params;
 
       const local = new LocalServices();
 
-      const listandoLocalis = await local.index({ id_cidade });
+      const listandoLocalis = await local.index({ id_cidade, id_local });
 
       return res.json(listandoLocalis);
     } catch (error) {
