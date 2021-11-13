@@ -11,10 +11,11 @@ class LocalServices {
 
       include: {
         association: "avaliacoes",
+        where: { id_local },
       },
 
       attributes: {
-        include: [[sequelize.fn("avg", sequelize.col("nota")), "valor"]],
+        include: [[sequelize.fn("avg", sequelize.col("nota")), "media"]],
       },
 
       group: ["avaliacoes.id", "Local.id"],
@@ -34,10 +35,6 @@ class LocalServices {
 
     const media = somaNotas / totalAvaliacao;
     local.push({ avaliação: media.toFixed(1) }).toString();
-
-    console.log(totalAvaliacao);
-    console.log(somaNotas);
-    console.log(media);
 
     return local;
 
