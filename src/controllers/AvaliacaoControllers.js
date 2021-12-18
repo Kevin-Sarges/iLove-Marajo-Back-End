@@ -7,7 +7,9 @@ class AvaliacaoController {
 
       const avaliacao = new AvaliacaoServices();
 
-      const avaliacoesLocais = await avaliacao.index({ id_local });
+      const avaliacoesLocais = await avaliacao.index({
+        id_local,
+      });
 
       return res.json(avaliacoesLocais);
     } catch (error) {
