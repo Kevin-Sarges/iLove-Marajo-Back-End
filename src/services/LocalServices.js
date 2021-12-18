@@ -15,6 +15,7 @@ class LocalServices {
     if (cidade === null) {
       return res.status(404).json({ Error: "Cidade não encontrado" });
     }
+
     return cidade.local;
   }
 

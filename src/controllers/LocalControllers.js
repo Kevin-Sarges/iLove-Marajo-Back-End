@@ -1,4 +1,5 @@
 import { LocalServices } from "../services/LocalServices";
+import { CalculoMedia } from "../utils/CalculoMediaServices";
 
 class LocalController {
   async index(req, res, next) {
@@ -9,6 +10,7 @@ class LocalController {
 
       const listandoLocalis = await local.index({ id_cidade });
 
+      console.log(CalculoMedia.toString());
       return res.json(listandoLocalis);
     } catch (error) {
       next(error);
