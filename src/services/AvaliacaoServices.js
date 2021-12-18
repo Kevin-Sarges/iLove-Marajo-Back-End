@@ -13,7 +13,7 @@ class AvaliacaoServices {
       return res.status(404).json({ error: "Avaliações não encontradas" });
     }
 
-    return local.avaliacoes;
+    return local;
   }
 
   async store({ nome_usuario, nota, comentario, id_local }) {
